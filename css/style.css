@@ -1,3 +1,16 @@
 body {
-    background: blue;
+    overflow: visible !important;
+}
+
+.pjs-circle {
+    color: blue;
+    opacity: 1;
+}
+.pjs-rectangle {
+    background: whitesmoke;
+    color: blue;
+    opacity: 1;
+    overflow: visible;
+    display: block;
+
 }
