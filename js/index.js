@@ -67,7 +67,7 @@ Physics(function(world){
           y: 100, // y-coordinate
           vx: 0, // velocity in x-direction
           vy: 0.2, // velocity in y-direction
-          radius: window.innerWidth * 0.15,
+          radius: window.innerWidth * 0.10,
         })
     );
     world.add(
@@ -85,7 +85,7 @@ Physics(function(world){
           y: 300, // y-coordinate
           vx: 0, // velocity in x-direction
           vy: 0, // velocity in y-direction
-          radius: window.innerWidth * 0.15,
+          radius: window.innerWidth * 0.12,
         })
     );
     world.add(Physics.behavior('attractor', {
