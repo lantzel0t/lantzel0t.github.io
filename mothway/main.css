@@ -1,5 +1,5 @@
-*
-{
+@import url(https://fonts.googleapis.com/css?family=PT+Serif&display=swap);
+*{
     margin: 0;
     padding: 0;
 }
@@ -8,6 +8,7 @@ html,
 body
 {
     overflow: hidden;
+    font-family:'PT Serif';
 }
 
 .webgl
@@ -20,8 +21,17 @@ body
 
 #score {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 5%;
+    right: 50%;
+    color: white;
+    font-size:30px;
+    text-align:center;   
+}
+
+#help {
+    position: fixed;
+    top: 90%;
+    left: 5%;
     color: white;
     font-size:30px;
 }
