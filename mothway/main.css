@@ -1,0 +1,29 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+#score {
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size:30px;
+}
+
+/*# sourceMappingURL=main.css.map*/
