@@ -3,6 +3,10 @@ body {
     color: #000000;
 }
 
+a {
+    color:rgb(205, 39, 47) !important;
+}
+
 .main {
     max-width: 450px;
     max-height:800px;
