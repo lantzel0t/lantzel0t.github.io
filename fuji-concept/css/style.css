@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
 body {
     background-color: black;
     color: #000000;
@@ -5,6 +7,10 @@ body {
 
 a {
     color:rgb(205, 39, 47) !important;
+}
+
+p {
+    font-family: 'Merriweather', serif;
 }
 
 .main {
@@ -23,11 +29,13 @@ a {
 }
 
 h4 {
-    font-weight: 500 !important;
+    font-weight: 700 !important;
+    font-family: 'Merriweather', serif;
 }
 h5 {
-    font-weight: 500 !important;
+    font-weight: 700 !important;
     text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
 ul > li {
@@ -83,8 +91,11 @@ ul.leaders span + span {
 }
 
 .table-of-contents a {
-    color: #D5DFE5 !important;
+    color: #000000 !important;
     padding-right:4px;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    font-weight: 550 !important;
 }
 
 .table-of-contents a.active {
