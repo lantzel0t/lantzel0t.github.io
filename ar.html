@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Hello, world!</title>
+	<title>AR business card</title>
 	<!-- include three.js library -->
 	<script src='ar/three.js'></script>
 	<!-- include jsartookit -->
@@ -14,13 +14,13 @@
 	<script src="ar/threex-armarkercontrols.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-
-<!-- 
-  Example created by Lee Stemkoski: https://github.com/stemkoski
-  Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
--->
-
+<body style="margin : 0px; overflow: hidden; font-family: 'Roboto Mono', monospace; text-align:center">
+<p>i ran out of time to finish this :c</p>
+<p>here's where you can find me-</p>
+<a href="https://twitter.com/Lantzel0t">https://twitter.com/Lantzel0t</a><br>
+<a href="mailto:anderson@lantzel0t.xyz">anderson@lantzel0t.xyz</a><br>
+<a href="tel:334-314-9781">334-314-9781</a><br>
+<p>i will finish this and a full portfolio soon, so check back later!</p>
 <script>
 
 var scene, camera, renderer, clock, deltaTime, totalTime;
@@ -48,9 +48,15 @@ function initialize()
 	});
 	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
 	renderer.setSize( 640, 480 );
+  renderer.setPixelRatio(devicePixelRatio);
+  renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.gammaOutput = true;
+      renderer.gammaFactor = 2.2;
 	renderer.domElement.style.position = 'absolute'
 	renderer.domElement.style.top = '0px'
 	renderer.domElement.style.left = '0px'
+  renderer.domElement.style.zIndex = "-1"
 	document.body.appendChild( renderer.domElement );
 
 	clock = new THREE.Clock();
@@ -121,7 +127,7 @@ function initialize()
 	});
 	
 	let mesh0 = new THREE.Mesh( geometry0, material0 );
-	mesh0.scale.set(1.2,1,1.2).multiplyScalar(1.05);
+	mesh0.scale.set(1.2,1,1.2).multiplyScalar(1.02);
 	mesh0.position.y = -0.5;
 	markerRoot1.add(mesh0);	
 
@@ -131,47 +137,51 @@ function initialize()
 				planeBack.position.y = -0.5;
         planeBack.position.z = -0.6
 				planeBack.rotateY( Math.PI * 2 );
+        planeBack.receiveShadow = true;
 				markerRoot1.add( planeBack );
 
-				const planeBottom = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
+				const planeBottom = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x7f7fff } ) );
 				planeBottom.rotateX( - Math.PI / 2 );
         planeBottom.position.y = -1;
+        planeBottom.receiveShadow = true;
 				markerRoot1.add( planeBottom );
 
-				const planeFront = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x7f7fff } ) );
+				const planeFront = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
 				planeFront.position.z = 0.6;
 				planeFront.position.y = -0.5;
 				planeFront.rotateY( Math.PI );
+        planeFront.receiveShadow = true;
 				markerRoot1.add( planeFront );
 
 				const planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
 				planeRight.position.x = 0.6;
 				planeRight.position.y = -0.5;
 				planeRight.rotateY( - Math.PI / 2 );
+        planeRight.receiveShadow = true;
 				markerRoot1.add( planeRight );
 
 				const planeLeft = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xff0000 } ) );
 				planeLeft.position.x = - 0.6;
 				planeLeft.position.y = -0.5;
 				planeLeft.rotateY( Math.PI / 2 );
+        planeLeft.receiveShadow = true;
 				markerRoot1.add( planeLeft );
 
         // lights
-				const mainLight = new THREE.PointLight( 0xcccccc, 1.5, 250 );
-				mainLight.position.y = -0.4;
-				markerRoot1.add( mainLight );
+        const light = new THREE.PointLight(0xffffff, 1.5);
+      light.position.set(0, 13, 0);
+      light.distance = 20;
+      light.castShadow = true;
+      light.shadow.mapSize.width = 1024;
+      light.shadow.mapSize.height = 1024;
+      markerRoot1.add(light);
 
-				const greenLight = new THREE.PointLight( 0x00ff00, 0.25, 1000 );
-				greenLight.position.set( 5.5, -0.5, 0 );
-				markerRoot1.add( greenLight );
-
-				const redLight = new THREE.PointLight( 0xff0000, 0.25, 1000 );
-				redLight.position.set( - 5.5, -0.5, 0 );
-				markerRoot1.add( redLight );
-
-				const blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
-				blueLight.position.set( 0, -0.5, 5.5 );
-				markerRoot1.add( blueLight );
+        // cubes
+        const cubegeo = new THREE.BoxGeometry( 0.4, 0.4, 0.4 );
+        const cubemat = new THREE.MeshStandardMaterial({ color: "steelblue" })
+        const cube1 = new THREE.Mesh( cubegeo, cubemat );
+        cube1.position.set(0, -0.5, 0);
+        markerRoot1.add(cube1);
 
 
 }
