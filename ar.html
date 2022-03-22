@@ -1,18 +1,206 @@
 <!DOCTYPE html>
-<html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-marker type="pattern" url="/ar/marker.patt" size="0.1" smooth="true">
-        <a-entity
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
-        ></a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Hello, world!</title>
+	<!-- include three.js library -->
+	<script src='ar/three.js'></script>
+	<!-- include jsartookit -->
+	<script src="ar/artoolkit.min.js"></script>
+	<script src="ar/artoolkit.api.js"></script>
+	<!-- include threex.artoolkit -->
+	<script src="ar/threex-artoolkitsource.js"></script>
+	<script src="ar/threex-artoolkitcontext.js"></script>
+	<script src="ar/threex-arbasecontrols.js"></script>
+	<script src="ar/threex-armarkercontrols.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+<!-- 
+  Example created by Lee Stemkoski: https://github.com/stemkoski
+  Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
+-->
+
+<script>
+
+var scene, camera, renderer, clock, deltaTime, totalTime;
+
+var arToolkitSource, arToolkitContext;
+
+var markerRoot1;
+
+var mesh1;
+
+initialize();
+animate();
+
+function initialize()
+{
+	scene = new THREE.Scene();
+
+				
+	camera = new THREE.Camera();
+	scene.add(camera);
+
+	renderer = new THREE.WebGLRenderer({
+		antialias : true,
+		alpha: true
+	});
+	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+	renderer.setSize( 640, 480 );
+	renderer.domElement.style.position = 'absolute'
+	renderer.domElement.style.top = '0px'
+	renderer.domElement.style.left = '0px'
+	document.body.appendChild( renderer.domElement );
+
+	clock = new THREE.Clock();
+	deltaTime = 0;
+	totalTime = 0;
+	
+	////////////////////////////////////////////////////////////
+	// setup arToolkitSource
+	////////////////////////////////////////////////////////////
+
+	arToolkitSource = new THREEx.ArToolkitSource({
+		sourceType : 'webcam',
+	});
+
+	function onResize()
+	{
+		arToolkitSource.onResize()	
+		arToolkitSource.copySizeTo(renderer.domElement)	
+		if ( arToolkitContext.arController !== null )
+		{
+			arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)	
+		}	
+	}
+
+	arToolkitSource.init(function onReady(){
+		onResize()
+	});
+	
+	// handle resize event
+	window.addEventListener('resize', function(){
+		onResize()
+	});
+	
+	////////////////////////////////////////////////////////////
+	// setup arToolkitContext
+	////////////////////////////////////////////////////////////	
+
+	// create atToolkitContext
+	arToolkitContext = new THREEx.ArToolkitContext({
+		cameraParametersUrl: 'ar/camera_para.dat',
+		detectionMode: 'mono'
+	});
+	
+	// copy projection matrix to camera when initialization complete
+	arToolkitContext.init( function onCompleted(){
+		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+	});
+
+	////////////////////////////////////////////////////////////
+	// setup markerRoots
+	////////////////////////////////////////////////////////////
+
+	// build markerControls
+	markerRoot1 = new THREE.Group();
+	markerRoot1.name = 'marker1';
+	scene.add(markerRoot1);
+	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
+		type : 'pattern',
+		patternUrl : "ar/pattern-marker1.patt",
+	})
+	
+	// the invisibility cloak (box with a hole)
+	let geometry0 = new THREE.BoxGeometry(1,1,1);
+	geometry0.faces.splice(4, 2); // make hole by removing top two triangles
+	
+	let material0 = new THREE.MeshBasicMaterial({
+		colorWrite: false
+	});
+	
+	let mesh0 = new THREE.Mesh( geometry0, material0 );
+	mesh0.scale.set(1.2,1,1.2).multiplyScalar(1.05);
+	mesh0.position.y = -0.5;
+	markerRoot1.add(mesh0);	
+
+  const planeGeo = new THREE.PlaneGeometry( 1.2, 1.2 );
+  // walls
+  const planeBack = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
+				planeBack.position.y = -0.5;
+        planeBack.position.z = -0.6
+				planeBack.rotateY( Math.PI * 2 );
+				markerRoot1.add( planeBack );
+
+				const planeBottom = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
+				planeBottom.rotateX( - Math.PI / 2 );
+        planeBottom.position.y = -1;
+				markerRoot1.add( planeBottom );
+
+				const planeFront = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x7f7fff } ) );
+				planeFront.position.z = 0.6;
+				planeFront.position.y = -0.5;
+				planeFront.rotateY( Math.PI );
+				markerRoot1.add( planeFront );
+
+				const planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
+				planeRight.position.x = 0.6;
+				planeRight.position.y = -0.5;
+				planeRight.rotateY( - Math.PI / 2 );
+				markerRoot1.add( planeRight );
+
+				const planeLeft = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xff0000 } ) );
+				planeLeft.position.x = - 0.6;
+				planeLeft.position.y = -0.5;
+				planeLeft.rotateY( Math.PI / 2 );
+				markerRoot1.add( planeLeft );
+
+        // lights
+				const mainLight = new THREE.PointLight( 0xcccccc, 1.5, 250 );
+				mainLight.position.y = -0.4;
+				markerRoot1.add( mainLight );
+
+				const greenLight = new THREE.PointLight( 0x00ff00, 0.25, 1000 );
+				greenLight.position.set( 5.5, -0.5, 0 );
+				markerRoot1.add( greenLight );
+
+				const redLight = new THREE.PointLight( 0xff0000, 0.25, 1000 );
+				redLight.position.set( - 5.5, -0.5, 0 );
+				markerRoot1.add( redLight );
+
+				const blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
+				blueLight.position.set( 0, -0.5, 5.5 );
+				markerRoot1.add( blueLight );
+
+
+}
+
+
+function update()
+{
+	// update artoolkit on every frame
+	if ( arToolkitSource.ready !== false )
+		arToolkitContext.update( arToolkitSource.domElement );
+}
+
+
+function render()
+{
+	renderer.render( scene, camera );
+}
+
+
+function animate()
+{
+	requestAnimationFrame(animate);
+	deltaTime = clock.getDelta();
+	totalTime += deltaTime;
+	update();
+	render();
+}
+
+</script>
+
+</body>
 </html>
