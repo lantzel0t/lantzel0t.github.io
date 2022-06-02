@@ -9,3 +9,4 @@ Add moth game to background
 Project card spacing
 Project card redesign
 Add resume
+Explain roles in each piece
