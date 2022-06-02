@@ -35,7 +35,29 @@
     <div id="tags" class="chips chips-autocomplete"></div>
 
     <!-- Projects will be injected here -->
-    <div id="projects"></div>
+    <div id="projects">
+
+      <div id="projectcard" class="card sticky-action">
+        <div style="display:none;">semester</div>
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;" id="Pimage" 
+          src="images/projects/Project Drillbit.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4" id="Ptitle">Project Drillbit<i
+            class="material-icons right">more_vert</i></span>
+          <p id="Psummary"></p>
+        </div>
+        <div class="card-action">
+          <a id="Pdemolink" href="aub.ie/drillbit">More</a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4" id="Ptitle">Project Drillbit<i class="material-icons right">close</i></span>
+          <p id="Pdescription">An open tower-defence game set within an alien cave system. Fight off wave after wave of bug monsters while protecting your resource collectors.</p>
+        </div>
+      </div>
+
+    </div>
 
     <!-- Import Footer -->
     <div id="footer"></div>
@@ -50,7 +72,7 @@
         type: "GET",
         url: "projects.csv",
         dataType: "text",
-        success: processData
+        success: search
       });
 
       $('.materialboxed').materialbox();
@@ -84,45 +106,10 @@
       }
     });
 
-    function processData(data) {
-      //Convert our string of csv data to a usable format
-      var projects = $.csv.toObjects(data);
-
-      var projectHTML = [];
-      for (var i = 0; i < projects.length; i++) {
-        //console.log(projects[i]);
-        //For each project, push a new string of HTML to be inserted
-        //PROJECT CARD TEMPLATE:
-        projectHTML.push(
-          `<div id="projectcard" class="card sticky-action">
-            <div style="display:none;">` + projects[i].tags + `</div>
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" style="object-fit:cover; height:230px; width:100%;" id="Pimage" 
-              src="images/projects/` + projects[i].image + `" alt="Project image: ` + projects[i].title + `">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4" id="Ptitle">` + projects[i].title + `<i
-                class="material-icons right">more_vert</i></span>
-              <p id="Psummary">` + `</p>
-            </div>
-            <div class="card-action">
-              <a id="Pdemolink" href="` + projects[i].link + `">More</a>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4" id="Ptitle">` + projects[i].title + `<i class="material-icons right">close</i></span>
-              <p id="Pdescription">` + projects[i].description + `</p>
-            </div>
-          </div>`);
-      }
-      //Insert our new HTML
-      $("#projects").html(projectHTML.join(""));
-      search();
-    }
-
     function search() {
       //Get chip data object
       var tags = M.Chips.getInstance(document.getElementById("tags")).chipsData;
-      console.log(tags);
+      //console.log(tags);
 
       //It's time to get funky
       //Start by toggling all in case there are no tags
