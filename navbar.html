@@ -1,0 +1,77 @@
+<!-- Navigation Bar -->
+<!-- IF YOU EDIT THIS, MAKE SURE YOU MAKE THE SAME CHANGES TO THE MOBILE NAVBAR BELOW -->
+<div class="navbar-fixed">
+    <nav style="text-transform: uppercase;">
+        <div class="nav-wrapper blue-grey lighten-3">
+            <div class="logoholder">
+                <a href="index.html" class="brand-logo left" style="text-align:left; font-size: 40px; left:0.5rem; height:100%;">
+                    <img src="images/TDlogo.png" style="max-height:100%;" alt="Portfolio Homepage">
+                    <span style="vertical-align: top;position:absolute;">&nbsp;Welcome!</span>
+                </a>
+            </div>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons black-text">menu</i></a>
+
+            <!-- Navbar Items-->
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <!-- Portfolio filters -->
+                <li>
+                    <a class='dropdown-trigger btn' href='index.html' style="font-size: 24px; background-color: #222222;"
+                        data-target='DDabout'>Portfolio</a>
+                    <ul id='DDabout' class='dropdown-content'>
+                        <li><a class="black-text" style="font-size: 10px;" href="index.html">Tech Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" href="index.html">3D Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" href="index.html">Design</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" href="index.html">Web Development</a></li>
+                    </ul>
+                </li>
+
+                <!-- Resume -->
+                <li>
+                    <a class='dropdown-trigger btn' href='index.html#resume' style="font-size: 24px; background-color: #222222;"
+                        data-target='DDprojects'>Resume</a>
+                </li>
+
+                <!-- Contact Me -->
+                <li>
+                    <a class='dropdown-trigger btn' href='index.html#contact' style="font-size: 24px; background-color: #222222;"
+                        data-target='DDinvolved'>Contact Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Mobile -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a class="black-text" href="index.html">Portfolio</a></li>
+    <li><a class="black-text" href="index.html">Tech Art</a></li>
+    <li><a class="black-text" href="index.html">3D Art</a></li>
+    <li><a class="black-text" href="index.html">Design</a></li>
+    <li><a class="black-text" href="index.html">Web Development</a></li>
+
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="index.html#resume">Resume</a></li>
+
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="index.html#contact">Contact Me</a></li>
+</ul>
+
+<!-- Initialize Menus -->
+<script type="text/javascript">
+    //Initialize dropdowns with options
+    $('.dropdown-trigger').dropdown({
+        'closeOnClick': true,
+        'hover': true,
+        'coverTrigger': false,
+        'alignment': 'right',
+        'inDuration': 300,
+        'outDuration': 225,
+    });
+
+    //Initialize sidebar nav for mobile
+    $(document).ready(function(){
+    $('.sidenav').sidenav({
+        'edge': 'right',
+    });
+  });
+</script>

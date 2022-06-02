@@ -2682,7 +2682,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             value: [0, 1],
             easing: 'easeOutQuad'
           },
-          scaleX: [0.3, 1],
+          //scaleX: [0.3, 1],  //We don't want animation on the X scale for dropdowns.
           scaleY: [0.3, 1],
           duration: this.options.inDuration,
           easing: 'easeOutQuint',
@@ -2715,7 +2715,7 @@ $jscomp.polyfill = function (e, r, p, m) {
             value: 0,
             easing: 'easeOutQuint'
           },
-          scaleX: 0.3,
+          //scaleX: 0.3, //Again, we don't want X animation for dropdowns.
           scaleY: 0.3,
           duration: this.options.outDuration,
           easing: 'easeOutQuint',
