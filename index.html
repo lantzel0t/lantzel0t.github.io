@@ -61,11 +61,10 @@
         secondaryPlaceholder: '+ Tag',
         autocompleteOptions: {
           data: {
-            'Tech': null,
-            '3d': null,
-            'Design': null,
-            'Programming': null,
-            'Web': null,
+            'tech-art': null,
+            '3d-art': null,
+            'programming': null,
+            'web-design': null,
           },
           limit: Infinity,
           minLength: 0
@@ -104,14 +103,14 @@
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4" id="Ptitle">` + projects[i].title + `<i
                 class="material-icons right">more_vert</i></span>
-              <p id="Psummary">` + projects[i].description + `</p>
+              <p id="Psummary">` + `</p>
             </div>
             <div class="card-action">
               <a id="Pdemolink" href="` + projects[i].link + `">More</a>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4" id="Ptitle">` + projects[i].title + `<i class="material-icons right">close</i></span>
-              <p id="Pdescription">` + projects[i].more + `</p>
+              <p id="Pdescription">` + projects[i].description + `</p>
             </div>
           </div>`);
       }
