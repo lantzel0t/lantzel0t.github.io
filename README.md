@@ -10,6 +10,7 @@ Project card redesign
 Explain roles in each piece
 Make tags look taggy
 Set tag search to AND instead of OR
+Fix mobile navbar not closing on tap
 
 DONE:
 Fix mobile navbar bug
