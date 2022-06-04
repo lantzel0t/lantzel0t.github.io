@@ -7,10 +7,9 @@
   <link rel="icon" href="images/Favicon.png">
 
   <!-- Imports -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <link rel="stylesheet" href="css/materialize.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="js/materialize.js"></script>
-  <script src="js/jquery.csv.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- References -->
@@ -98,7 +97,7 @@
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Outlast Island
             <i class="material-icons right">more_vert</i></span>
-          <p>tags</p>
+          <p>2d-art</p>
         </div>
         <div class="card-action"><a href="https://lantzel0t.itch.io/outlast-island">More</a></div>
         <div class="card-reveal">
@@ -158,10 +157,11 @@
         </div>
       </div>
 
+      <!--
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Nick Hoult
@@ -174,11 +174,12 @@
           <p>description</p>
         </div>
       </div>
+      -->
 
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Neil Bowman
@@ -195,7 +196,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Mothway
@@ -212,7 +213,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Virtual Exhibit Hall
@@ -229,7 +230,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Meditation
@@ -246,7 +247,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">This website!
@@ -263,12 +264,12 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Murus
             <i class="material-icons right">more_vert</i></span>
-          <p>tags</p>
+          <p>tech-art</p>
         </div>
         <div class="card-action"><a href="link">More</a></div>
         <div class="card-reveal">
@@ -280,7 +281,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">History Globes
@@ -297,7 +298,7 @@
       <div id="projectcard" class="card sticky-action">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" style="object-fit:cover; height:230px; width:100%;"
-          src="images/projects/">
+          src="https://via.placeholder.com/300">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">TigerDev Website
@@ -321,15 +322,7 @@
   <script>
     $(document).ready(function () {
 
-      //Load in project data
-      $.ajax({
-        type: "GET",
-        url: "projects.csv",
-        dataType: "text",
-        success: search
-      });
 
-      $('.materialboxed').materialbox();
 
       //Search bar setup
       chips = $('.chips-autocomplete').chips({
@@ -340,7 +333,7 @@
             'tech-art': null,
             '3d-art': null,
             'programming': null,
-            'web-design': null,
+            'web-dev': null,
           },
           limit: Infinity,
           minLength: 0
@@ -359,6 +352,16 @@
         });
       }
     });
+
+    function loadChip(tag) {
+      var chips = M.Chips.getInstance(document.getElementById("tags"));
+      // -1 offset, starting at length value
+      for (var i=chips.chipsData.length-1; i>-1; i--) {
+        //console.log("deleting chip" + i);
+        chips.deleteChip(i);
+      }
+      chips.addChip({tag: tag});
+    }
 
     function search() {
       //Get chip data object
