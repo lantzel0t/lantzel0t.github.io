@@ -2,63 +2,73 @@
 <!-- IF YOU EDIT THIS, MAKE SURE YOU MAKE THE SAME CHANGES TO THE MOBILE NAVBAR BELOW -->
 <div class="navbar-fixed">
     <nav style="text-transform: uppercase;">
-        <div class="nav-wrapper" style="background-color:#F4743B">
+        <div class="nav-wrapper" style="background-color:#e08963">
             <div class="logoholder">
-                <a href="index.html" class="brand-logo left" style="text-align:left; font-size: 40px; left:0.5rem; height:100%;">
+                <a href="#" class="brand-logo left" style="text-align:left; font-size: 40px; left:0.5rem; height:100%;">
                     <!--<img src="images/TDlogo.png" style="max-height:100%;" alt="Portfolio Homepage">-->
                     <span style="vertical-align: top;position:absolute; width:max-content">&nbsp;Anderson Lantz</span>
                 </a>
             </div>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons black-text">menu</i></a>
 
+            
             <!-- Navbar Items-->
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <!-- Portfolio filters -->
+                <!-- About Us -->
                 <li>
-                    <a class='dropdown-trigger btn' href='index.html' style="font-size: 24px; background-color: #000000;"
-                        data-target='DDabout'>Portfolio</a>
-                    <ul id='DDabout' class='dropdown-content'>
-                        <li><a class="black-text" style="font-size: 10px;" href="index.html?tag0=tech-art">Tech Art</a></li>
-                        <li><a class="black-text" style="font-size: 10px;" href="index.html?tag0=3d-art">3D Art</a></li>
-                        <li><a class="black-text" style="font-size: 10px;" href="index.html?tag0=game-design">Design</a></li>
-                        <li><a class="black-text" style="font-size: 10px;" href="index.html?tag0=web-dev">Web Development</a></li>
+                    <a class='dropdown-trigger btn' href='#' style="font-size: 24px; background-color: #000000;"
+                        data-target='DDfolio'>Portfolio</a>
+                    <ul id='DDfolio' class='dropdown-content'>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('tech-art')">Tech Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('3d-art')">3D Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('web-dev')">Web Development</a></li>
                     </ul>
                 </li>
 
-                <!-- Resume -->
-                <li>
-                    <a class='dropdown-trigger btn' href='index.html#resume' style="font-size: 24px; background-color: #000000;"
-                        data-target='DDprojects'>Resume</a>
-                </li>
+                <li><a class='btn' href='#resume' style="font-size: 24px; background-color: #000000;">Resume</a></li>
 
-                <!-- Contact Me -->
-                <li>
-                    <a class='dropdown-trigger btn' href='index.html#footer' style="font-size: 24px; background-color: #000000;"
-                        data-target='DDinvolved'>Contact Me</a>
-                </li>
+                <li><a class='btn' href='#footer' style="font-size: 24px; background-color: #000000;">Contact Me</a></li>
             </ul>
         </div>
     </nav>
 </div>
 
+<!--
+                    <li>
+                    <a class='dropdown-trigger btn' href='#' style="font-size: 24px; background-color: #000000;"
+                        data-target='DDabout'>Portfolio</a>
+                    <ul id='DDabout' class='dropdown-content'>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('tech-art')">Tech Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('3d-art')">3D Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('web-dev')">Web Development</a></li>
+                    </ul>
+                </li>
+-->
+
 <!-- Mobile -->
 <ul class="sidenav" id="mobile-demo">
-    <li><a class="black-text" href="index.html">Portfolio</a></li>
-    <li><a class="black-text" href="index.html">Tech Art</a></li>
-    <li><a class="black-text" href="index.html">3D Art</a></li>
-    <li><a class="black-text" href="index.html">Design</a></li>
-    <li><a class="black-text" href="index.html">Web Development</a></li>
+    <li><a class="black-text" href="about-us.html#who-we-are">Who we are</a></li>
+    <li><a class="black-text" href="about-us.html#contact-us">Contact Us</a></li>
+    <li><a class="black-text" href="alumni-stories.html">Alumni Stories</a></li>
+    <li><a class="black-text" href="guest-speakers.html">Guest Speakers</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="projects.html">Past Projects</a></li>
+
+    <!-- Replace 'tag0's value here to whatever the current semester is -->
+    <li><a class="black-text" href="projects.html?tag0=fall2021">Current Projects</a></li>
+    <li><a class="black-text" href="projects.html?tag0=demo">Playable Projects</a></li>
 
     <li><div class="divider"></div></li>
-    <li><a class="black-text" href="index.html#resume">Resume</a></li>
-
-    <li><div class="divider"></div></li>
-    <li><a class="black-text" href="index.html#footer">Contact Me</a></li>
+    <li><a class="black-text" href="calendar.html">Calendar & Events</a></li>
+    <li><a class="black-text" href="join-us.html" style=>Join Us</a></li>
+    <li><a class="black-text" href="partners.html" style=>Sponsors & Partners</a></li>
+    <li><a class="black-text" href="club-resources.html">Club Resources</a></li>
 </ul>
 
 <!-- Initialize Menus -->
 <script type="text/javascript">
     //Initialize dropdowns with options
+    
     $('.dropdown-trigger').dropdown({
         'closeOnClick': true,
         'hover': true,
@@ -73,5 +83,6 @@
     $('.sidenav').sidenav({
         'edge': 'right',
     });
-  });
+});
+
 </script>
