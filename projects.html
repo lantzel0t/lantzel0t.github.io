@@ -1,67 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Title & Favicon -->
-  <title>Anderson Lantz</title>
-  <link rel="icon" href="images/Favicon.png">
-
-  <!-- Imports -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <link rel="stylesheet" href="css/materialize.css">
-  <script src="js/materialize.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <!-- References -->
-  <script src="js/app.js" type="text/javascript"></script>
-  <link href="css/site.css" rel="stylesheet" type="text/css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-  <!-- navbar.html injection -->
-  <div id="navbar"></div>
-
-  <!-- Container for page content. Keeps everything centered and tidy -->
-  <div class="container">
-  
-  <!-- All that ever was -->
-  <div class="title_container" style="text-shadow: 0px 0px 20px black;">
-    <h1 style="margin:0px;"><br>TigerDev</h1>
-    <p>Auburn University's Video Game Development Club<br><br>Meetings Monday @6:00PM on Zoom and in-person, check our <a href="https://discord.gg/46zzXxbyFs">Discord</a> for details.</p>
-  </div>
-
-  <div style="text-align: center;">
-    <h2>Learn. Create. Play.</h2>
-  </div>
-
-  <div class=video>
-    <iframe width=960px height=540px src="https://www.youtube.com/embed/vyWiQ__eRIo?autoplay=1&mute=1"></iframe>
-  </div>
-    
-  <div style="text-align: center;">
-    <div class="row white-text">
-      <div class="col s12 m4"><br><br><h3>LEARN.</h3>Compared to nearly any industry the video games industry is one of the youngest that exists. As such, many of the great discoveries in this field have yet to be explored. As game developers we have devoted ourselves to a life of continual learning. In order to engage in this philosophy TigerDev offers an array of opportunities to better yourself in whatever area of game development you are most interested in.</div>
-      <div class="col s12 m4"><br><br><h3>CREATE.</h3>A passion for creating new and interesting experiences is at the core of TigerDev. Every semester we breaks out into teams where we conceptualize, prototype, and create brand new games from scratch. If you don't have time to devote yourself to a project then no worries because TigerDev also offers Game Jams several times throughout the semester!</div>
-      <div class="col s12 m4"><br><br><h3>PLAY.</h3>In order to grow as developers and artists it's important that we recognize what the games before us did right as well as what they did wrong. In this pursuit, TigerDev chooses a "game of the month" for our members to get together and play. At the end of the month we come together and host a design discussion centered around every aspect of the game!</div>
+<!--
+  <div id="projectcard" class="card sticky-action">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+      src="images/projects/">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">title
+        <i class="material-icons right">more_vert</i></span>
+      <p>tags</p>
+    </div>
+    <div class="card-action"><a href="link">More</a></div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">title<i class="material-icons right">close</i></span>
+      <p>description</p>
     </div>
   </div>
+-->
 
-  <div class="row">
-    <h2><br>Games At A Glance</h2>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Dead Ted Redemption.gif" alt="DeadTed Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/HipHopper.gif" alt="HipHopper Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Beach Game.gif" alt="Beachhouse Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Icebound.gif" alt="IceBound Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Space Explorer.gif" alt="Space Shooter Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Spooky Spells.gif" alt="Spooky Spells Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Gaia.gif" alt="Gaia Game Gif"/></div>
-    <div class="col s12 m6 xl3"><img style="object-fit:cover; height:230px; width:100%;" src="images/projects/Consumo.gif" alt="Consumo Game Gif"/></div>
-  </div>
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/Project Drillbit.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Project Drillbit
+            <i class="material-icons right">more_vert</i></span>
+          <p>tech-art game-design</p>
+        </div>
+        <div class="card-action"><a href="aub.ie/drillbit">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Project Drillbit<i class="material-icons right">close</i></span>
+          <p>An open tower-defence game set within an alien cave system. Fight off wave after wave of bug monsters while protecting your resource collectors.</p>
+        </div>
+      </div>
 
-  <!-- footer.html injection -->
-  <div id="footer"></div>
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/Project Ignition.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Project Ignition
+            <i class="material-icons right">more_vert</i></span>
+          <p>tech-art game-design</p>
+        </div>
+        <div class="card-action"><a href="https://lantzel0t.itch.io/project-ignition">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Project Ignition<i class="material-icons right">close</i></span>
+          <p>In this game, your fuel is your weapon. Drop pools of flammable gasoline behind you, and then run back over it to set it ablaze! Be sure to keep an eye on your gas gauge and find a gas pump when it gets too low. With a Mad Max inspired theme and Tron-like game-play, driving through a scarred wasteland has never been more fun.</p>
+        </div>
+      </div>
 
-</div>
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/Outlast Island.png">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Outlast Island
+            <i class="material-icons right">more_vert</i></span>
+          <p>2d-art game-design</p>
+        </div>
+        <div class="card-action"><a href="https://lantzel0t.itch.io/outlast-island">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Outlast Island<i class="material-icons right">close</i></span>
+          <p>A co-op or single-player survival game with four different playable characters. Stranded on an island, you must fortify yourself during the day from the creatures that come out at night. This game features a full building system, algorithm-generated enemy waves, four different playable characters, six different monster types, and a levelling system.</p>
+        </div>
+      </div>
 
-</body>
-</html>
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/HipHopper.gif">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">HipHopper
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art game-design</p>
+        </div>
+        <div class="card-action"><a href="https://christiangraham.org/#/hip-hopper/">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">HipHopper<i class="material-icons right">close</i></span>
+          <p>Hip Hopper is a first person platformer inspired by mascot platformers of the N64/PS1/PS2 era. The idea was to take a 3D Mario open world and reimagine it with the movement mechanics of Mirrors Edge. The objective is to make a demo in which we showcase the movement mechanics, how they play into the design of the world, and an original hip hop score to tie it together. Hip Hopper features wall jumping, wall climbing, and wall running in an interconnected world.</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/Icebound.gif">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Icebound
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art game-design</p>
+        </div>
+        <div class="card-action"><a href="https://lantzel0t.itch.io/icebound">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Icebound<i class="material-icons right">close</i></span>
+          <p>Icy point-and click adventure game with low-poly 3D visuals, reminiscent of LucasArts point-and-click games.</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="images/projects/Spooky Spells.gif">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Spooky Spells
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art game-design</p>
+        </div>
+        <div class="card-action"><a href="https://lantzel0t.itch.io/spooky-spells">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Spooky Spells<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <!--
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Nick Hoult
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Nick Hoult<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+      -->
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Neil Bowman
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Neil Bowman<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Mothway
+            <i class="material-icons right">more_vert</i></span>
+          <p>web-dev game-design</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Mothway<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Virtual Exhibit Hall
+            <i class="material-icons right">more_vert</i></span>
+          <p>web-dev</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Virtual Exhibit Hall<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Meditation
+            <i class="material-icons right">more_vert</i></span>
+          <p>3d-art tech-art game-design</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Meditation<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">This website!
+            <i class="material-icons right">more_vert</i></span>
+          <p>web-dev</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">This website!<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Murus
+            <i class="material-icons right">more_vert</i></span>
+          <p>game-design</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Murus<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">History Globes
+            <i class="material-icons right">more_vert</i></span>
+          <p>tech-art web-dev</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">History Globes<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
+
+      <div id="projectcard" class="card sticky-action">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="object-fit:cover; height:230px; width:100%;"
+          src="https://via.placeholder.com/300">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">TigerDev Website
+            <i class="material-icons right">more_vert</i></span>
+          <p>web-dev</p>
+        </div>
+        <div class="card-action"><a href="link">More</a></div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">TigerDev Website<i class="material-icons right">close</i></span>
+          <p>description</p>
+        </div>
+      </div>
