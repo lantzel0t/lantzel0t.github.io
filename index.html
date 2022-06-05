@@ -99,11 +99,23 @@
         $(this).toggle($(this).text().toLowerCase().indexOf(toggleAll) > -1);
       });
 
+      // AND SEARCH QUERY - start true and switch false if no match
       //Loop through each tag in our chip data
       //Filter through content inside projects div
       //Toggle (display:none/default;) depending on whether there's a match or not
       //The selector here makes sure we toggle only the projectcard divs,
       $("#projects #projectcard").filter(function () {
+        var match = true;
+        
+        for (var i = 0; i < tags.length; i++) {
+          var tag = tags[i].tag.toLowerCase();
+          if (!($(this).children().text().toLowerCase().indexOf(tag) > -1)) match = false;
+        }
+        //...but we still loop through children to find all text
+        $(this).toggle(match);
+
+
+        /* OR SEARCH QUERY - start false and switch true only if match
         var match
         if (tags.length > 0) {
           match = false;
@@ -114,6 +126,7 @@
         }
         //...but we still loop through children to find all text
         $(this).toggle(match);
+        */
       });
     }
   </script>
