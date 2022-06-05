@@ -4,6 +4,7 @@ Anderson Lantz' personal portfolio website.
 TODO: 
 Gather footage for each portfolio piece
 Explain roles in each piece
+Reorder project cards
 Update FAVICON
 Add moth game to background
 Project card spacing
