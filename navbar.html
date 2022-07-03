@@ -1,0 +1,83 @@
+<!-- Navigation Bar -->
+<!-- IF YOU EDIT THIS, MAKE SURE YOU MAKE THE SAME CHANGES TO THE MOBILE NAVBAR BELOW -->
+<div class="navbar-fixed">
+    <nav style="text-transform: uppercase;">
+        <div class="nav-wrapper" style="background-image: linear-gradient(to right, palevioletred, pink, gold);">
+            <div class="logoholder">
+                <a href="#" class="brand-logo left" style="text-align:left; font-size: 40px; left:0.5rem; height:100%;">
+                    <!--<img src="images/TDlogo.png" style="max-height:100%;" alt="Portfolio Homepage">-->
+                    <span style="vertical-align: top;position:absolute; width:max-content">&nbsp;Anderson Lantz</span>
+                </a>
+            </div>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons black-text">menu</i></a>
+
+            
+            <!-- Navbar Items-->
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <!-- About Us -->
+                <li>
+                    <a class='dropdown-trigger btn' href='#' style="font-size: 24px; background-color: #000000;"
+                        data-target='DDfolio' onclick="loadChip('')">Portfolio</a>
+                    <ul id='DDfolio' class='dropdown-content'>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('tech-art')">Tech Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('3d-art')">3D Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('game-design')">Game Design</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('web-dev')">Web Development</a></li>
+                    </ul>
+                </li>
+
+                <li><a class='btn' href='#resume' style="font-size: 24px; background-color: #000000;">Resume</a></li>
+
+                <li><a class='btn' href='#footer' style="font-size: 24px; background-color: #000000;">Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!--
+                    <li>
+                    <a class='dropdown-trigger btn' href='#' style="font-size: 24px; background-color: #000000;"
+                        data-target='DDabout'>Portfolio</a>
+                    <ul id='DDabout' class='dropdown-content'>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('tech-art')">Tech Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('3d-art')">3D Art</a></li>
+                        <li><a class="black-text" style="font-size: 10px;" onclick="loadChip('web-dev')">Web Development</a></li>
+                    </ul>
+                </li>
+-->
+
+<!-- Mobile -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a class="black-text" href="#">Portfolio</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="#" onclick="loadChip('tech-art')">Tech Art</a></li>
+    <li><a class="black-text" href="#" onclick="loadChip('3d-art')">3D Art</a></li>
+    <li><a class="black-text" href="#" onclick="loadChip('game-design')">Game Design</a></li>
+    <li><a class="black-text" href="#" onclick="loadChip('web-dev')">Web Development</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="#resume">Resume</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="black-text" href="#footer">Contact Me</a></li>
+</ul>
+
+<!-- Initialize Menus -->
+<script type="text/javascript">
+    //Initialize dropdowns with options
+    
+    $('.dropdown-trigger').dropdown({
+        'closeOnClick': true,
+        'hover': true,
+        'coverTrigger': false,
+        'alignment': 'right',
+        'inDuration': 300,
+        'outDuration': 225,
+    });
+
+    //Initialize sidebar nav for mobile
+    $(document).ready(function(){
+    $('.sidenav').sidenav({
+        'edge': 'right',
+    });
+});
+
+</script>
