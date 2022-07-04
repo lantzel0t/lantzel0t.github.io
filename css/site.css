@@ -34,7 +34,6 @@ h3 {
 .logoholder {
   position:absolute;
   background-color:#000000;
-  width:400px;
   height:100%;
   max-height:100%;
 }
@@ -95,8 +94,8 @@ h3 {
   width: 32%;
   display:inline-block;
   vertical-align: top;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .card:hover {

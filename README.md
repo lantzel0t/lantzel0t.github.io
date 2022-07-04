@@ -2,7 +2,6 @@
 Anderson Lantz' personal portfolio website.
 
 TODO: 
-Reorder project cards
 Update FAVICON
 Add moths to background
 Project card spacing
@@ -26,3 +25,4 @@ Make tags look taggy
 Update links for projects
 Explain roles in each piece
 Gather footage for each portfolio piece
+Reorder project cards
