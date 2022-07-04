@@ -2,11 +2,10 @@
 Anderson Lantz' personal portfolio website.
 
 TODO: 
-Update FAVICON
+Fix mobile navbar not closing on tap
 Add moths to background
 Project card spacing
 Project card redesign
-Fix mobile navbar not closing on tap
 Color code tags
 Get higher res Neil Bowman art
 Drillbit gif
@@ -26,3 +25,5 @@ Update links for projects
 Explain roles in each piece
 Gather footage for each portfolio piece
 Reorder project cards
+Fix mobile layout in general
+Update FAVICON
