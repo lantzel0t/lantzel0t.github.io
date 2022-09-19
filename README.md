@@ -1,4 +1,4 @@
-# tigerdevwebsite
+# lantzwebsite
 Anderson Lantz' personal portfolio website.
 
 TODO: 
