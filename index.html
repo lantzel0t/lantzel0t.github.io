@@ -15,8 +15,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
 
+  <script src="/js/three/three.min.js"></script>
+  <script src="/js/three/GLTFLoader.js"></script>
+  <script src="/js/three/OrbitControls.js"></script>
+  <script src="/js/three/EffectComposer.js"></script>
+  <script src="/js/three/RenderPass.js"></script>
+  <script src="/js/three/ShaderPass.js"></script>
+  <script src="/js/three/UnrealBloomPass.js"></script>
+  <script src="/js/three/stats.min.js"></script>
+  <script src="/js/three/LuminosityHighPassShader.js"></script>
+  <script src="/js/three/CopyShader.js"></script>
+
   <!-- References -->
-  <script src="js/app.js" type="text/javascript"></script>
   <link href="css/site.css" rel="stylesheet" type="text/css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +35,14 @@
 <body>
   <!-- Import Navigation Bar -->
   <div id="navbar"></div>
+  
+  <!-- THREEjs -->
+  <canvas class="webgl"></canvas>
 
   <div class="container">
-    <div style="text-align: center; color: white; font-size: 20pt;"><br>Hello! Welcome to my personal portfolio. Here you'll
-      find projects I've worked on in a variety of positions. The search bar below can be used to filter
-      for specific roles.</div>
+    
+    <div style="text-align: center; font-size: 20pt;"><br>Hello! Welcome to my personal portfolio. Scroll down to dust off some projects I've worked on in the past.</div>
+    <div class="topspacer"></div>
 
     <!-- Filter system input -->
     <label class="sr-only">Enter a search term in the following
@@ -39,8 +52,16 @@
     <!-- Projects will be injected here -->
     <div id="projects"></div>
 
-    <div id="resume" style="aspect-ratio: 800 / 1030; max-width: 800px;">
-      <iframe src="https://docs.google.com/gview?url=https://lantzel0t.xyz/Resume2022.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
+
+
+    <div id="resumemodal" class="modal">
+      <div class="modal-content">
+        <div id="resume" style="aspect-ratio: 800 / 1030; max-width:none;">
+          <iframe src="https://docs.google.com/gview?url=https://lantzel0t.xyz/Resume2022.pdf&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class="modal-footer" style="height:0">
+      </div>
     </div>
 
     <!-- Import Footer -->
@@ -50,8 +71,7 @@
 
   <script>
     $(document).ready(function () {
-
-
+      $('.modal').modal();
 
       //Search bar setup
       chips = $('.chips-autocomplete').chips({
@@ -136,6 +156,30 @@
     }
   </script>
 
+
+        <!-- SHADERS REQUIRED FOR BLOOM -->
+        <script type="x-shader/x-vertex" id="vertexshader">
+          varying vec2 vUv;
+  
+          void main() {
+              vUv = uv;
+              gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+          }
+      </script>
+  
+      <script type="x-shader/x-fragment" id="fragmentshader">
+          uniform sampler2D baseTexture;
+          uniform sampler2D bloomTexture;
+  
+          varying vec2 vUv;
+  
+          void main() {
+              gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+          }
+      </script>
+      
+  <script src="js/app.js" type="text/javascript"></script>
+  <script src="js/moths.js" type="text/javascript"></script>
 </body>
 
 </html>
