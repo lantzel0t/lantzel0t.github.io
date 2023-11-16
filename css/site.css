@@ -111,6 +111,10 @@ body {
   display: block;
 }
 
+.card a {
+  color: white !important;
+}
+
 
 
 .footer {
