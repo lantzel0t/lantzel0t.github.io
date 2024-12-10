@@ -72,6 +72,10 @@ body {
   color:black;
 }
 
+.chips .input {
+  color:rgb(255, 255, 255) !important;
+}
+
 .card {
   line-height: 0;
   position: relative;
